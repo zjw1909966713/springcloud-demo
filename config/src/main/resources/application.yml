@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/zjw1909966713/config-repo
+          username: zjw1909966713@163.com
+          password: Tianshi@18
+          basedir: /usr/basedir/
+  rabbitmq:
+    host: 172.16.10.65
+    port: 5672
+    username: guest
+    password: guest
+eureka:
+  client:
+    service-url:
+      defaultZone:  http://localhost:8761/eureka/
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
