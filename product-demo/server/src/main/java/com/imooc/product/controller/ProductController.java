@@ -10,10 +10,13 @@ import com.imooc.product.dataobject.ProductInfo;
 import com.imooc.product.service.CategoryService;
 import com.imooc.product.service.ProductService;
 import com.imooc.product.util.ResultVOUtil;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -27,6 +30,7 @@ import java.util.stream.Collectors;
  */
 @RestController
 @RequestMapping("/product")
+@Slf4j
 public class ProductController {
 
     @Autowired
@@ -37,7 +41,14 @@ public class ProductController {
     private CategoryService categoryService;
     
     @GetMapping("/list")
-    public ResultVO list(){
+    public ResultVO list(HttpServletRequest request){
+        Cookie[] cookies = request.getCookies();
+        if (cookies!=null){
+            for (Cookie a:cookies){
+                log.info(a.getName()+"=========="+a.getValue());
+            }
+        }
+
 
         List<ProductInfo> productInfoList = productService.findUpAll();
 

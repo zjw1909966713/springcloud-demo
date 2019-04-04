@@ -68,6 +68,13 @@
 		</dependency>
 
 
+		<!--spring cloud bus 自动刷新配置文件-->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-bus-amqp</artifactId>
+		</dependency>
+
+
 
 	</dependencies>
 

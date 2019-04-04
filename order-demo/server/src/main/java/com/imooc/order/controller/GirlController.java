@@ -22,6 +22,6 @@ public class GirlController {
 
     @GetMapping("print")
     public String print(){
-        return "namge:"+girlProperty.getName()+",age:"+girlProperty.getAge();
+        return "name:"+girlProperty.getName()+",age:"+girlProperty.getAge();
     }
 }

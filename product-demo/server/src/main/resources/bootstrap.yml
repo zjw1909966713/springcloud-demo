@@ -7,6 +7,16 @@ spring:
           enabled: true
           service-id: config
         profile: dev
+      stream:
+        bindings:
+          output:
+            group: order
+            destination: greetings
+            content-type: application/json
+          input:
+            group: order
+            destination: greetings
+            content-type: application/json
 eureka:
   client:
     service-url:
