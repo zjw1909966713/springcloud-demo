@@ -1,5 +1,7 @@
 package com.imooc.order.exception;
 
+import com.imooc.order.enums.ResultEnum;
+
 /**
  * @author 张进文
  * @ClassName OrderException
@@ -14,5 +16,10 @@ public class OrderException extends RuntimeException {
     public OrderException(Integer code,String message) {
         super(message);
         this.code = code;
+    }
+    public OrderException(ResultEnum resultEnum){
+        super(resultEnum.getMessage());
+        this.code=resultEnum.getCode();
+
     }
 }

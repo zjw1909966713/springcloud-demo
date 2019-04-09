@@ -15,6 +15,7 @@ import org.springframework.util.CollectionUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.HashMap;
@@ -28,7 +29,7 @@ import java.util.Map;
  * @Version 1.0
  */
 @RestController
-@RequestMapping("/com/imooc/order")
+@RequestMapping("/order")
 @Slf4j
 public class OrderController {
 
@@ -70,5 +71,19 @@ public class OrderController {
         map.put("orderId",orderDTO1.getOrderId());
         return ResultVOUtil.success(map);
 
+    }
+
+
+    /** *
+     * @description: 完成订单
+     * @author: 张进文
+     * @param: [orderId]
+     * @return: com.imooc.order.VO.ResultVO<com.imooc.order.dto.OrderDTO>
+     * @date: 2019/4/9 13:59
+     * @version: 1.0
+     */
+    @PostMapping("/finish")
+    public ResultVO<OrderDTO> finish(@RequestParam("orderId") String orderId){
+       return  ResultVOUtil.success(orderService.finish(orderId));
     }
 }

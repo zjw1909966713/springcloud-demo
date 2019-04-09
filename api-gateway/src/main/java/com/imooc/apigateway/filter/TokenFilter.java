@@ -45,11 +45,11 @@ public class TokenFilter extends ZuulFilter {
         HttpServletRequest request = requestContext.getRequest();
         //参数中获得，也可以重cookie ，header
         String token = request.getParameter("token");
-        if(StringUtils.isEmpty(token)){
+        /*if(StringUtils.isEmpty(token)){
             requestContext.setSendZuulResponse(false);
             requestContext.setResponseStatusCode(HttpStatus.UNAUTHORIZED.value());
 
-        }
+        }*/
 
         return null;
     }

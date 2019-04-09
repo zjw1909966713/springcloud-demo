@@ -53,7 +53,7 @@ public class LoginController {
 		}
 
 		//2. 判断角色
-		if (RoleEnum.BUYER.getCode() != userInfo.getRole()) {
+		if (RoleEnum.BUYER.getCode().intValue() != userInfo.getRole().intValue()) {
 			return ResultVOUtil.error(ResultEnum.ROLE_ERROR);
 		}
 
@@ -81,7 +81,7 @@ public class LoginController {
 		}
 
 		//2. 判断角色
-		if (RoleEnum.SELLER.getCode() != userInfo.getRole()) {
+		if (RoleEnum.SELLER.getCode().intValue() != userInfo.getRole().intValue()) {
 			return ResultVOUtil.error(ResultEnum.ROLE_ERROR);
 		}
 
