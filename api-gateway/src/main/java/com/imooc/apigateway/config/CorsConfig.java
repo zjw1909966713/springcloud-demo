@@ -17,6 +17,7 @@ import java.util.Arrays;
  */
 @Configuration
 public class CorsConfig {
+    
 
     public CorsFilter corsFilter(){
 
