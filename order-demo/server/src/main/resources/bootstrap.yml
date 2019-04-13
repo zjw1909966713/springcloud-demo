@@ -17,6 +17,11 @@ spring:
           group: order
           destination: greetings
           content-type: application/json
+  zipkin:
+    base-url: http://172.16.10.65:9411/
+  sleuth:
+    sampler:
+      probability: 1
 
 
 
@@ -28,23 +33,34 @@ server:
   port: 8081
 
 
-
 hystrix:
   command:
     default:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 1000
+            timeoutInMilliseconds: 10000
 
     getProductInfoList:
            execution:
              isolation:
                thread:
-                 timeoutInMilliseconds: 3000
+                 timeoutInMilliseconds: 10000
 
 management:
   endpoints:
     web:
       exposure:
         include: '*'
+
+
+
+ribbon:
+  ReadTimeout: 10000
+  SocketTimeout: 10000
+logging:
+  level:
+    org.springframework.cloud.openfeign: debug
+
+
+

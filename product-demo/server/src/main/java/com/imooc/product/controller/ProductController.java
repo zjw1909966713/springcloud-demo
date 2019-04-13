@@ -42,6 +42,12 @@ public class ProductController {
     
     @GetMapping("/list")
     public ResultVO list(HttpServletRequest request){
+//
+//        try {
+//            Thread.sleep(1000);
+//        } catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
         Cookie[] cookies = request.getCookies();
         if (cookies!=null){
             for (Cookie a:cookies){

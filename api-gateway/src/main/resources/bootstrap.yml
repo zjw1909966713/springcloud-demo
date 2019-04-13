@@ -15,9 +15,23 @@ server:
   port: 9000
 
 
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
 
 
 
 
+zuul:
+  host:
+    connect-timeout-millis: 2000
+    socket-timeout-millis: 2000
 
 
+ribbon:
+  ReadTimeout: 60000  # 单位毫秒数
+  SocketTimeout: 60000
