@@ -19,6 +19,8 @@ spring:
           content-type: application/json
   zipkin:
     base-url: http://172.16.10.65:9411/
+    sender:
+      type: web
   sleuth:
     sampler:
       probability: 1
